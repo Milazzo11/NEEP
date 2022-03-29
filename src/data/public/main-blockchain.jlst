@@ -1,5 +1,5 @@
 {"id":1234,"type":"execution_reward","data":{"date":"2022-18-03 02:36:56.550604","wallet":"18w8TZbp6ms5tHTaXD9K337B6quqxQ21qx","amount":500}}
-{"id":7890,"type":"transaction","data":{"date":"2022-17-03 02:34:56.566613","sender_wallet":"29x8TZbp6ms5tHTabD9K337B6quqxQ21qp","recipient_wallet":"19x8TZbp6ms5tHTabD9K337B6quqxQ21qx","amount":100}}
+{"id":7890,"type":"transaction","data":{"date":"2022-17-03 02:34:56.566613","public_key":"29x8TZbp6ms5tHTabD9K337B6quqxQ21qp","wallet":"19x8TZbp6ms5tHTabD9K337B6quqxQ21qx","amount":100}}
 {"id":165266,"data":1}
 {"id":163628,"data":1}
 {"id":1666,"data":1}

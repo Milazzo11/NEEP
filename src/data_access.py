@@ -16,8 +16,9 @@ CODE_SUBMISSION_QUEUE_PATH = "data\\public\\code-submission-queue.jlst"
 # public data file paths
 
 
-PRIVATE_WALLET_KEY_PATH = "data\\personal\\private-wallet-key.txt"
-PUBLIC_WALLET_KEY_PATH = "data\\personal\\public-wallet-key.txt"
+PRIVATE_WALLET_KEY_PATH = "data\\keys\\private-wallet-key.txt"
+PUBLIC_WALLET_KEY_PATH = "data\\keys\\public-wallet-key.txt"
+RECIPIENT_WALLET_ADDRESS_PATH = "data\\keys\\recipient-wallet-address.txt"
 # personal data file paths
 
 
@@ -385,6 +386,18 @@ def get_public_key():
     """
 
     with open(PUBLIC_WALLET_KEY_PATH, "r") as f:
+        return f.read()
+
+
+def get_recipient_wallet():
+    """
+    Retrieves stored recipient wallet address.
+
+    :return: recipient wallet address
+    :rtype: str
+    """
+
+    with open(RECIPIENT_WALLET_ADDRESS_PATH, "r") as f:
         return f.read()
 
 
