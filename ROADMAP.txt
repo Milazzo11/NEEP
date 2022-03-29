@@ -1,0 +1,10 @@
+<<DELETE AFTER PROJECT COMPLETION>>
+
+-> exec.py completion [x]
+-> run folder/file configs setup [x]
+-> public storage data structures configs [o]
+-> all files stubbed with docstrings [o]
+
+...
+
+-> private key configs [o]

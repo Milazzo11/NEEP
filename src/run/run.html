@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<!-- all user submitted code will be contained in this file and JS source files -->
+<!-- no HTML is needed tp be written, and all JS code should be in the <script> section -->
+<!-- after code execution, the isFinished function must be called to suspend execution -->
+
+<html>
+    <script>
+
+        function isFinished(output) {  // sends completion/output signatures
+
+            localStorage.setItem("neep.is-finished", 1);
+            localStorage.setItem("neep.output", output)
+            
+        }
+
+
+        function test() {  // TEST FUNCTION - DELETE BEFORE USE
+
+            localStorage.clear()
+            isFinished("TEST-OUTPUT");
+
+        }
+
+        test()
+        // TEST FUNCTION CALL - DELETE BEFORE USE
+
+        // write user JS code here
+
+    </script>
+</html>
