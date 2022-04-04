@@ -27,6 +27,11 @@ MAX_MINER_CLAIMS = 15
 # miner claims count data
 
 
+MAX_IP_CODE_SUBMISSIONS = 20
+MINER_IP_CAP = MAX_IP_CODE_SUBMISSIONS
+# maximum submissions and miners per IP address
+
+
 MAX_CHECK_ITERATIONS = 600
 MAX_OUTPUT_LENGTH = 10000
 # submitted code execution constraints
@@ -116,26 +121,23 @@ def search_for_compatible_code_submission(id_compatibility):
     return obj_list[0], index_list[0]
 
 
-def check_for_code_submission_queue_ip(ip_value):
+def count_code_submission_queue_ips(ip_value):
     """
-    Wrapper function for JSON List module to check if an IP is currently in the file.
+    Wrapper function for JSON List module to count the number of a certain IP in the file.
 
     :param ip_value: IP value to check for
     :type ip_value: str
-    :return: whether or not the specified IP is in the JSON List file
-    :rtype: bool
+    :return: number of IP values found
+    :rtype: int
     """
 
-    obj_list, _ = jlst.get_by_match(CODE_SUBMISSION_QUEUE_PATH, "ip", ip_value, 1)
+    obj_list, _ = jlst.get_by_match(CODE_SUBMISSION_QUEUE_PATH, "ip", ip_value, MAX_IP_CODE_SUBMISSIONS)
 
-    if obj_list is None:
-        print("NO MATCHING IP FOUND IN CODE SUBMISSION QUEUE")
+    count = len(obj_list)
+    
+    print(f"{count} MATCHING IP(s) FOUND IN CODE SUBMISSION QUEUE")
 
-        return False
-
-    print("A MATCHING IP WAS FOUND IN CODE SUBMISSION QUEUE")
-
-    return True
+    return count
 
 
 def remove_from_submission_queue_by_index(index):
@@ -205,26 +207,23 @@ def search_in_submission_miner_claims(json_elem, match, count):
     return obj_list, index_list
 
 
-def check_for_submissions_miner_claim_ip(ip_value):
+def count_submissions_miner_claim_ips(ip_value):
     """
-    Wrapper function for JSON List module to check if a claim IP is currently in the file.
+    Wrapper function for JSON List module to count the number of a certain claim IP in the file.
 
     :param ip_value: claim IP value to check for
     :type ip_value: str
-    :return: whether or not the specified claim IP is in the JSON List file
-    :rtype: bool
+    :return: number of claim IP values found
+    :rtype: int
     """
 
-    obj_list, _ = jlst.get_by_match(SUBMISSIONS_MINER_CLAIMS_PATH, "claim_ip", ip_value, 1)
+    obj_list, _ = jlst.get_by_match(SUBMISSIONS_MINER_CLAIMS_PATH, "claim_ip", ip_value, MINER_IP_CAP)
 
-    if obj_list is None:
-        print("NO MATCHING CLAIM IP FOUND IN SUBMISSIONS MINER CLAIMS")
-
-        return False
-
-    print("A MATCHING CLAIM IP WAS FOUND IN SUBMISSIONS MINER CLAIMS")
+    count = len(obj_list)
     
-    return True
+    print(f"{count} MATCHING IP(s) FOUND IN SUBMISSION MINER CLAIMS")
+
+    return count
 
 
 def remove_from_submission_miner_claims_by_index(index):
