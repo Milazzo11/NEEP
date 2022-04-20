@@ -1,2 +1,2 @@
-{"type":"submission","claim_id":5678,"submission_id":1234,"ip":"129.21.157.28","date":"2021-19-11 11:46:56.441664","output":"ENCRYPTED-OUTPUT-WITH-RANDOMLY-GENERATED-KEY"}
+{"type":"submission","claim_id":5678,"submission_id":1234,"ip":"129.21.157.28","file_data":"DATA-FROM-FILE-TO-VERIFY-UNIFORMITY-WITH-OTHER-MINERS","output":"ENCRYPTED-OUTPUT-WITH-RANDOMLY-GENERATED-KEY"}
 {"type":"verification","claim_id":5678,"submission_id":1234,"ip":"129.21.157.28","decryption_key":"45wuyZbpwhdgY78aXD9K337B6quqxQ21ab"}

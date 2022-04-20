@@ -22,8 +22,8 @@ RECIPIENT_WALLET_ADDRESS_PATH = "data\\keys\\recipient-wallet-address.txt"
 # personal data file paths
 
 
-MIN_MINER_CLAIMS = 7
-MAX_MINER_CLAIMS = 15
+MIN_MINER_CLAIMS = 15
+MAX_MINER_CLAIMS = 30
 # miner claims count data
 
 

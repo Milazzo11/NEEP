@@ -2,9 +2,11 @@
 
 -> exec.py completion [x]
 -> run folder/file configs setup [x]
--> public storage data structures configs [o]
+-> public storage data structures configs [x]
 -> all files stubbed with docstrings [o]
 
 ...
 
--> private key configs [o]
+-> private key configs [x]
+-> output standardization [x]
+-> miner IP cooperation/cheating [o]

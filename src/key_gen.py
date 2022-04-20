@@ -1,11 +1,13 @@
 """
 Generates and stores key and wallet data.
-NEEP uses the same key encryption structure as Bitcoin.
+Handles two-way Fernet key encryption.
+NEEP uses the same wallet key encryption structure as Bitcoin.
 
 :author: Max Milazzo
 """
 
 
+from cryptography.fernet import Fernet
 from bitcoin import random_key, privkey_to_pubkey, pubkey_to_address
 from data_access import PRIVATE_WALLET_KEY_PATH, PUBLIC_WALLET_KEY_PATH, RECIPIENT_WALLET_ADDRESS_PATH
 
@@ -82,5 +84,79 @@ def file_setup():
     print("KEY FILE DATA UPDATED")
 
 
+def get_fernet_key():
+    """
+    Generates a two-way Fernet encryption key.
+
+    :return: Fernet key
+    :rtype: byte str
+    """
+
+    key = Fernet.generate_key()
+
+    print("TWO-WAY FERNET KEY GENERATED")
+
+    return key
+
+
+def fernet_encrypt_text(key, text):
+    """
+    Encrypts text using Fernet two-way encryption.
+
+    :param key: Fernet key
+    :param text: text to be encrypted
+    :type key: byte str
+    :type text: str
+    :return: encrypted text
+    :rtype: byte str
+    """
+
+    encrypted_text = Fernet(key).encrypt(text)
+
+    print("TEXT ENCRYPTED WITH FERNET KEY")
+
+    return encrypted_text
+
+
+def fernet_key_encrypt(text):
+    """
+    Handles Fernet encryption.
+
+    :param text: text to be encrypted
+    :type text: str
+    :return: Fernet key, encrypted text
+    :rtype: str, str
+    """
+
+    key = get_fernet_key()
+
+    encrypted_text = fernet_encrypt_text(key, text.encode())
+
+    return key.decode(), encrypted_text.decode()
+
+
+def fernet_key_decrypt(key, encrypted_text):
+    """
+    Handles Fernet decryption.
+
+    :param key: Fernet key
+    :param encrypted_text: encrypted text
+    :type key: str
+    :type encrypted_text: str
+    """
+
+    decrypted_text = Fernet(key.encode()).decrypt(encrypted_text.encode())
+
+    print("TEXT DECRYPTED WITH FERNET KEY")
+
+    return decrypted_text.decode()
+
+
 if __name__ == "__main__":  # testing block
     file_setup()
+
+    key, encrypted_text = fernet_key_encrypt("Hello World!")
+
+    print("\nkey: " + key)
+    print("encrypted text: " + encrypted_text + "\n")
+    print("\ndecoded text: " + fernet_key_decrypt(key, encrypted_text))
