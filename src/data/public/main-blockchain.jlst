@@ -1,17 +1,2 @@
-{"id":1234,"type":"execution_reward","block_order":0,"data":{"wallets":["18w8TZbp6ms5tHTaXD9K337B6quqxQ21qx","10w8TZbp6ms5tHTaXD9K337B6quqxQ21qx","52w8TZbp6ms5tHTaXD9K337B6quqxQ21qx"],"amounts":[500, 505, 490]}}
-{"id":7890,"type":"transaction","block_order":1,"data":{"public_key":"29x8TZbp6ms5tHTabD9K337B6quqxQ21qp","wallet":"19x8TZbp6ms5tHTabD9K337B6quqxQ21qx","amount":100}}
-{"id":165266,"data":1}
-{"id":163628,"data":1}
-{"id":1666,"data":1}
-{"id":1634846,"data":1}
-{"id":1636866,"data":1}
-{"id":1665466,"data":1}
-{"id":136266,"data":1}
-{"id":1636266,"data":1}
-{"id":16364266,"data":1}
-{"id":1636566,"data":1}
-{"id":16345,"data":1}
-{"id":163656,"data":1}
-{"id":163625,"data":1}
-{"id":16376,"data":1}
-{"id":166,"data":1}
+{"id":1234,"type":"execution_reward","data":{"wallets":["18w8TZbp6ms5tHTaXD9K337B6quqxQ21qx","10w8TZbp6ms5tHTaXD9K337B6quqxQ21qx","52w8TZbp6ms5tHTaXD9K337B6quqxQ21qx"],"amounts":[500, 505, 490]}}
+{"id":7890,"type":"transaction","data":{"public_key":"29x8TZbp6ms5tHTabD9K337B6quqxQ21qp","wallet":"19x8TZbp6ms5tHTabD9K337B6quqxQ21qx","amount":100},"encryption":"ENCRYPTED_DATA_WITH_PRIVATE_KEY"}

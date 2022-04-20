@@ -8,7 +8,7 @@ NEEP uses the same wallet key encryption structure as Bitcoin.
 
 
 from cryptography.fernet import Fernet
-from bitcoin import random_key, privkey_to_pubkey, pubkey_to_address
+from bitcoin import random_key, privkey_to_pubkey, pubkey_to_address, ecdsa_sign, ecdsa_verify
 from data_access import PRIVATE_WALLET_KEY_PATH, PUBLIC_WALLET_KEY_PATH, RECIPIENT_WALLET_ADDRESS_PATH
 
 
@@ -82,6 +82,72 @@ def file_setup():
         f.write(wallet_address)
     
     print("KEY FILE DATA UPDATED")
+
+
+
+
+def get_private_key():
+    """
+    """
+
+    with open(PRIVATE_WALLET_KEY_PATH, "r") as f:
+        private_key = f.read()
+    
+    print("PRIVATE KEY RETRIEVED")
+
+    return private_key
+
+
+def get_public_key():
+    """
+    """
+
+    with open(PUBLIC_WALLET_KEY_PATH, "r") as f:
+        public_key = f.read()
+    
+    print("PUBLIC KEY RETRIEVED")
+
+    return public_key
+
+
+def get_wallet_address():
+    """
+    """
+
+    with open(RECIPIENT_WALLET_ADDRESS_PATH, "r") as f:
+        wallet_address = f.read()
+    
+    print("WALLET ADDRESS RETRIEVED")
+
+    return wallet_address
+
+
+
+def private_key_encrypt(data):
+    """
+    """
+
+    encrypted_data = ecdsa_sign(data, get_private_key())
+
+    print("DATA ENCRYPTED WITH PRIVATE KEY")
+
+    return encrypted_data
+
+
+def verify_key_encryption(data, encrypted_data, public_key):
+    """
+    """
+
+    print("VERIFYING MESSAGE ENCRYPTION")
+
+    is_valid = ecdsa_verify(data, encrypted_data, public_key)
+
+    if is_valid:
+        print("KEY ENCRYPTION VALID")
+    else:
+        print("KEY ENCRYPTION IS NOT VALID")
+
+    return is_valid
 
 
 def get_fernet_key():

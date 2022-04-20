@@ -19,6 +19,7 @@ CODE_SUBMISSION_QUEUE_PATH = "data\\public\\code-submission-queue.jlst"
 PRIVATE_WALLET_KEY_PATH = "data\\keys\\private-wallet-key.txt"
 PUBLIC_WALLET_KEY_PATH = "data\\keys\\public-wallet-key.txt"
 RECIPIENT_WALLET_ADDRESS_PATH = "data\\keys\\recipient-wallet-address.txt"
+IP_ADDRESS_PATH = "data\\ip.txt"
 # personal data file paths
 
 
